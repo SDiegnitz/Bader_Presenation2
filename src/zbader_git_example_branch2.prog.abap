@@ -12,3 +12,9 @@ PARAMETERS: p_vkorg TYPE vkorg.
 SELECT SINGLE * FROM vbak
   WHERE vkorg = @p_vkorg
   INTO @DATA(ls_vkorg).
+
+* Anpassung des Programmes auf Zielsystem (S4)
+
+SELECT * FROM VBAP
+  WHERE vbeln = @ls_vkorg-vbeln
+  INTO TABLE @data(lt_vbeln).
